@@ -2,7 +2,9 @@
 
 namespace Backpack\CRUD\app\Http\Controllers;
 
+use Backpack\CRUD\app\Http\Controllers\Contracts\CrudControllerContract;
 use Backpack\CRUD\app\Library\Attributes\DeprecatedIgnoreOnRuntime;
+use Backpack\CRUD\Backpack;
 use Backpack\CRUD\app\Library\CrudPanel\Hooks\Facades\LifecycleHook;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -15,7 +17,7 @@ use Illuminate\Support\Str;
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  * @property array $data
  */
-class CrudController extends Controller
+class CrudController extends Controller implements CrudControllerContract
 {
     use DispatchesJobs, ValidatesRequests;
 
@@ -25,10 +27,6 @@ class CrudController extends Controller
 
     public function __construct()
     {
-        if ($this->crud) {
-            return;
-        }
-
         // ---------------------------
         // Create the CrudPanel object
         // ---------------------------
@@ -38,9 +36,9 @@ class CrudController extends Controller
         // It's done inside a middleware closure in order to have
         // the complete request inside the CrudPanel object.
         $this->middleware(function ($request, $next) {
-            $this->crud = app('crud');
-
-            $this->crud->setRequest($request);
+            if (! Backpack::hasCrudController(get_class($this))) {
+                $this->initializeCrud($request);
+            }
 
             LifecycleHook::trigger('crud:before_setup_defaults', [$this]);
             $this->setupDefaults();
@@ -54,6 +52,14 @@ class CrudController extends Controller
 
             return $next($request);
         });
+    }
+
+    public function initializeCrud($request, $operation = null)
+    {
+        $this->crud = Backpack::crud($this)->setRequest($request);
+        $this->setupDefaults();
+        $this->setup();
+        $this->setupConfigurationForCurrentOperation($operation);
     }
 
     /**
@@ -105,9 +111,9 @@ class CrudController extends Controller
      * Allow developers to insert default settings by creating a method
      * that looks like setupOperationNameOperation (aka setupXxxOperation).
      */
-    protected function setupConfigurationForCurrentOperation()
+    protected function setupConfigurationForCurrentOperation(?string $operation = null)
     {
-        $operationName = $this->crud->getCurrentOperation();
+        $operationName = $operation ?? $this->crud->getCurrentOperation();
         if (! $operationName) {
             return;
         }

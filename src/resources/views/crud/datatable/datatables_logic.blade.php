@@ -102,7 +102,8 @@
             window.location.href = persistentUrl;
         }
     @endif
-
+    var updatesUrl = false;
+    console.log('updatesUrl', updatesUrl);
     window.crud = {
       exportButtons: JSON.parse('{!! json_encode($crud->get('list.export_buttons')) !!}'),
       functionsToRunOnDataTablesDrawEvent: [],
@@ -125,6 +126,9 @@
         fn.apply(window, args);
       },
       updateUrl : function (url) {
+        if(updatesUrl === false) {
+            return;
+        }
         let urlStart = "{{ url($crud->getOperationSetting("datatablesUrl")) }}";
         let urlEnd = url.replace(urlStart, '');
         urlEnd = urlEnd.replace('/search', '');

@@ -148,20 +148,3 @@
   </div>
 
 @endsection
-
-@section('after_styles')
-  {{-- DATA TABLES --}}
-  @basset('https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css')
-  @basset('https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.dataTables.min.css')
-  @basset('https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css')
-
-  {{-- CRUD LIST CONTENT - crud_list_styles stack --}}
-  @stack('crud_list_styles')
-@endsection
-
-@section('after_scripts')
-  @include('crud::inc.datatables_logic')
-
-  {{-- CRUD LIST CONTENT - crud_list_scripts stack --}}
-  @stack('crud_list_scripts')
-@endsection
