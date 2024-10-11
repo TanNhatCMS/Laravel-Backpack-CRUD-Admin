@@ -152,5 +152,4 @@ class CrudController extends Controller implements CrudControllerContract
 
         return $this->{$name};
     }
-
 }
