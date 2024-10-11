@@ -85,7 +85,7 @@ class BackpackServiceProvider extends ServiceProvider
         $this->registerBackpackErrorViews();
 
         // Bind the CrudPanel object to Laravel's service container
-        $this->app->scoped('crud', function ($app) {
+        $this->app->bind('crud', function ($app) {
             // loop the stack trace to find the CrudControllerContract that called this method
             $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
             $controller = null;
