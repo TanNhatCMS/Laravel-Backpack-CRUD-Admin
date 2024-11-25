@@ -10,8 +10,7 @@
 @push('after_scripts') @if (request()->ajax()) @endpush @endif
 @bassetBlock('backpack/crud/buttons/delete-button-'.app()->getLocale().'.js')
 <script>
-
-	if (typeof deleteEntry != 'function') {
+	if (typeof deleteEntry !== 'function') {
 	  $("[data-button-type=delete]").unbind('click');
 
 	  function deleteEntry(button) {
@@ -56,14 +55,16 @@
 							  crud.table.draw(false);
 						  }
 
+						   // Hide the modal, if any
+						   $('.dtr-modal-close').click();
+
 			          	  // Show a success notification bubble
 			              new Noty({
 		                    type: "success",
 		                    text: "{!! '<strong>'.trans('backpack::crud.delete_confirmation_title').'</strong><br>'.trans('backpack::crud.delete_confirmation_message') !!}"
 		                  }).show();
 
-			              // Hide the modal, if any
-			              $('.modal').modal('hide');
+			             
 			          } else {
 			              // if the result is an array, it means 
 			              // we have notification bubbles to show
