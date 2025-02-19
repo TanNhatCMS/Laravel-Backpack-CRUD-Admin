@@ -41,7 +41,7 @@ trait DeleteOperation
         // setup the default redirect to where user will be redirected after delete
         // if user has access to list, redirect to list, otherwise redirect to previous page
         $this->crud->operation('show', function () {
-            $this->crud->setOperationSetting('deleteButtonRedirect', function() {
+            $this->crud->setOperationSetting('deleteButtonRedirect', function () {
                 if ($this->crud->hasAccess('list')) {
                     return url($this->crud->route);
                 }
