@@ -4,8 +4,8 @@ namespace Backpack\CRUD\app\Http\Controllers;
 
 use Backpack\CRUD\app\Http\Controllers\Contracts\CrudControllerContract;
 use Backpack\CRUD\app\Library\Attributes\DeprecatedIgnoreOnRuntime;
-use Backpack\CRUD\Backpack;
 use Backpack\CRUD\app\Library\CrudPanel\Hooks\Facades\LifecycleHook;
+use Backpack\CRUD\Backpack;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller;
