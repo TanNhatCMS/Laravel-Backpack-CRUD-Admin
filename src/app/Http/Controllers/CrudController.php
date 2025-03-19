@@ -61,19 +61,21 @@ class CrudController extends Controller implements CrudControllerContract
 
     public function initializeCrud($request, $operation = null)
     {
-        $crudController = Backpack::crud($this)->setRequest($request);
-        if ($crudController->isInitialized()) {
+        $crudPanel = Backpack::crud($this)->setRequest($request);
+        if ($crudPanel->isInitialized()) {
+            dd($crudPanel);
+
             return;
         }
-
-        LifecycleHook::trigger('crud:before_setup_defaults', [$crudController]);
+        //dd($crudPanel);
+        LifecycleHook::trigger('crud:before_setup_defaults', [$this]);
         $this->setupDefaults();
-        LifecycleHook::trigger('crud:after_setup_defaults', [$crudController]);
+        LifecycleHook::trigger('crud:after_setup_defaults', [$this]);
 
-        LifecycleHook::trigger('crud:before_setup', [$crudController]);
+        LifecycleHook::trigger('crud:before_setup', [$this]);
         $this->setup();
 
-        LifecycleHook::trigger('crud:after_setup', [$crudController]);
+        LifecycleHook::trigger('crud:after_setup', [$this]);
         $this->setupConfigurationForCurrentOperation();
 
         $this->crud->initialized = true;
