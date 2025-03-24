@@ -86,20 +86,56 @@ class BackpackServiceProvider extends ServiceProvider
 
         // Bind the CrudPanel object to Laravel's service container
         $this->app->bind('crud', function ($app) {
-            // loop the stack trace to find the CrudControllerContract that called this method
+            // Prioritize explicit controller context
             $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
             $controller = null;
+
             foreach ($trace as $step) {
-                if (isset($step['class']) && is_a($step['class'], app\Http\Controllers\Contracts\CrudControllerContract::class, true)) {
+                if (isset($step['class']) &&
+                    is_a($step['class'], app\Http\Controllers\Contracts\CrudControllerContract::class, true)) {
                     $controller = $step['class'];
                     break;
                 }
             }
-            if (! $controller) {
-                throw new \Exception('Could not identify the crud controller method. You sure you are calling this from a CrudController?');
+
+            if ($controller) {
+                $crudPanel = Backpack::getControllerCrud($controller);
+
+                return $crudPanel;
+            }
+            // Fallback to a more robust initialization
+            $cruds = Backpack::getCruds();
+
+            if (! empty($cruds)) {
+               
+                $crudPanel = reset($cruds);
+
+                // Ensure upload events are registered
+                return $crudPanel;
             }
 
-            return Backpack::getControllerCrud($controller);
+            return Backpack::getCrudPanelInstance();
+        });
+
+        // Bind a special CrudPanel object for the CrudPanelFacade
+        $this->app->bind('backpack.crud', function ($app) {
+            // Similar logic to 'crud' binding
+            $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+            $controller = null;
+            foreach ($trace as $step) {
+                if (isset($step['class']) &&
+                    is_a($step['class'], app\Http\Controllers\Contracts\CrudControllerContract::class, true)) {
+                    $controller = $step['class'];
+                    break;
+                }
+            }
+
+            if ($controller) {
+                $crudPanel = Backpack::getControllerCrud($controller);
+
+                return $crudPanel;
+            }
+            return Backpack::getCrudPanelInstance();
         });
 
         $this->app->scoped('backpack-manager', function ($app) {
@@ -200,7 +236,7 @@ class BackpackServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  Router  $router
      * @return void
      */
     public function setupRoutes(Router $router)
@@ -219,7 +255,7 @@ class BackpackServiceProvider extends ServiceProvider
     /**
      * Load custom routes file.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  Router  $router
      * @return void
      */
     public function setupCustomRoutes(Router $router)
@@ -277,7 +313,7 @@ class BackpackServiceProvider extends ServiceProvider
         // add the root disk to filesystem configuration
         app()->config['filesystems.disks.'.config('backpack.base.root_disk_name')] = [
             'driver' => 'local',
-            'root' => base_path(),
+            'root'   => base_path(),
         ];
 
         /*
@@ -296,7 +332,7 @@ class BackpackServiceProvider extends ServiceProvider
             [
                 'backpack' => [
                     'driver' => 'eloquent',
-                    'model' => config('backpack.base.user_model_fqn'),
+                    'model'  => config('backpack.base.user_model_fqn'),
                 ],
             ];
 
@@ -314,8 +350,8 @@ class BackpackServiceProvider extends ServiceProvider
         [
             'backpack' => [
                 'provider' => 'backpack',
-                'table' => $backpackPasswordBrokerTable,
-                'expire' => config('backpack.base.password_recovery_token_expiration', 60),
+                'table'    => $backpackPasswordBrokerTable,
+                'expire'   => config('backpack.base.password_recovery_token_expiration', 60),
                 'throttle' => config('backpack.base.password_recovery_throttle_notifications'),
             ],
         ];
@@ -324,7 +360,7 @@ class BackpackServiceProvider extends ServiceProvider
         app()->config['auth.guards'] = app()->config['auth.guards'] +
             [
                 'backpack' => [
-                    'driver' => 'session',
+                    'driver'   => 'session',
                     'provider' => 'backpack',
                 ],
             ];

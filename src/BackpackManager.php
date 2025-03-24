@@ -7,9 +7,21 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 
 final class BackpackManager
 {
-    private array $cruds;
+    private array $cruds = [];
+
+    private CrudPanel $crudPanelInstance;
 
     private $requestController = null;
+
+    public function __construct()
+    {
+        $this->crudPanelInstance = new CrudPanel();
+    }
+
+    public function getCrudPanelInstance(): CrudPanel
+    {
+        return $this->crudPanelInstance;
+    }
 
     public function crud(CrudControllerContract $controller): CrudPanel
     {
@@ -55,5 +67,10 @@ final class BackpackManager
         }
 
         return $this->cruds[$controller];
+    }
+
+    public function getCruds(): array
+    {
+        return $this->cruds;
     }
 }

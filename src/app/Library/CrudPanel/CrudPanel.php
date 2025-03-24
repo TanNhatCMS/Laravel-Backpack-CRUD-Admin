@@ -35,7 +35,9 @@ use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Route;
 
 class CrudPanel
 {
@@ -80,7 +82,7 @@ class CrudPanel
     /**
      * Set the request instance for this CRUD.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      */
     public function setRequest($request = null): self
     {
@@ -92,10 +94,11 @@ class CrudPanel
     /**
      * Get the request instance for this CRUD.
      *
-     * @return \Illuminate\Http\Request
+     * @return Request
      */
     public function getRequest()
     {
+
         return $this->request;
     }
 
