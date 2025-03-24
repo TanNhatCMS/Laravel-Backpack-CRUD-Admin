@@ -2,7 +2,6 @@
 
 namespace Backpack\CRUD\Tests\Config\CrudPanel;
 
-use Backpack\CRUD\app\Http\Controllers\Contracts\CrudControllerContract;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\Backpack;
 use Backpack\CRUD\Tests\BaseTestClass;

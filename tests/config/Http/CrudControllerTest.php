@@ -2,7 +2,6 @@
 
 namespace Backpack\CRUD\Tests\Unit\Http;
 
-use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\Backpack;
 use Backpack\CRUD\Tests\BaseTestClass;
 
@@ -46,10 +45,10 @@ class CrudControllerTest extends BaseTestClass
     {
         // create a first request
         $firstRequest = request()->create('admin/users/1/edit', 'GET');
-       
+
         app()->handle($firstRequest);
         $firstRequest = app()->request;
-      
+
         // see if the first global request has been passed to the CRUD object
         $this->assertSame(app('crud')->getRequest(), $firstRequest);
 
@@ -57,7 +56,7 @@ class CrudControllerTest extends BaseTestClass
         $secondRequest = request()->create('admin/users/1', 'PUT', ['name' => 'foo']);
         app()->handle($secondRequest);
         $secondRequest = app()->request;
-    
+
         // see if the second global request has been passed to the CRUD object
         $this->assertSame(app('crud')->getRequest(), $secondRequest);
 

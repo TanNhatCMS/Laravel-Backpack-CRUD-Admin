@@ -98,7 +98,6 @@ class CrudPanel
      */
     public function getRequest()
     {
-
         return $this->request;
     }
 

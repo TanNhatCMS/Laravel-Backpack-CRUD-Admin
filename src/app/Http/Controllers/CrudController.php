@@ -48,7 +48,7 @@ class CrudController extends Controller implements CrudControllerContract
             $this->triggerControllerHooks();
 
             $this->initialized = true;
-            
+
             Backpack::crud($this)->setRequest($request);
 
             return $next($request);
@@ -61,6 +61,7 @@ class CrudController extends Controller implements CrudControllerContract
 
         if ($crudPanel->isInitialized()) {
             $crudPanel->setRequest($request);
+
             return $crudPanel;
         }
 
