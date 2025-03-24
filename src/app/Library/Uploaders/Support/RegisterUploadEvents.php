@@ -35,7 +35,7 @@ final class RegisterUploadEvents
     /*******************************
      * Private methods - implementation
      *******************************/
-    private function registerEvents(array|null $subfield = [], ?bool $registerModelEvents = true): void
+    private function registerEvents(?array $subfield = [], ?bool $registerModelEvents = true): void
     {
         if (! empty($subfield)) {
             $this->registerSubfieldEvent($subfield, $registerModelEvents);
