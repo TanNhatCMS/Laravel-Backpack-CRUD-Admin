@@ -1,5 +1,5 @@
 {
-    "name": "backpack/crud",
+    "name": "tannhatcms/crud",
     "type": "library",
     "description": "Quickly build admin interfaces using Laravel, Bootstrap and JavaScript.",
     "keywords": [
@@ -43,9 +43,12 @@
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.0|^9.0|^11.0",
+        "phpunit/phpunit": "^10.0|^9.0|^11.0|^12.0",
         "orchestra/testbench": "^8.0|^9.0|^10.0",
         "spatie/laravel-translatable": "^6.0"
+    },
+    "replace": {
+        "backpack/crud": "*"
     },
     "autoload": {
         "psr-4": {
