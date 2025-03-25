@@ -236,10 +236,6 @@ trait FieldsProtectedMethods
 
     protected function inferFieldTypeFromRelationType($relationType)
     {
-        if (backpack_pro()) {
-            return 'relationship';
-        }
-
         switch ($relationType) {
             case 'BelongsTo':
                 return 'select';

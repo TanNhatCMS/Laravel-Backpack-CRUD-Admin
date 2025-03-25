@@ -41,9 +41,6 @@ class CrudFilter
 
     public function __construct($options, $values, $logic, $fallbackLogic)
     {
-        if (! backpack_pro()) {
-            throw new BackpackProRequiredException('Filter');
-        }
         // if filter exists
         if ($this->crud()->hasFilterWhere('name', $options['name'])) {
             $properties = get_object_vars($this->crud()->firstFilterWhere('name', $options['name']));
