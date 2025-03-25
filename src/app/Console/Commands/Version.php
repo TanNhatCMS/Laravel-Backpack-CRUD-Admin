@@ -45,6 +45,9 @@ class Version extends Command
             if (substr($package, 0, 9) == 'backpack/') {
                 $this->line($package.': '.\Composer\InstalledVersions::getPrettyVersion($package));
             }
+            if (substr($package, 0, 9) == 'tannhatcms/') {
+                $this->line($package.': '.\Composer\InstalledVersions::getPrettyVersion($package));
+            }
         }
     }
 }

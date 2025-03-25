@@ -30,5 +30,5 @@
 @endif
 
 @push('after_scripts')
-    @basset(base_path('vendor/backpack/crud/src/resources/assets/js/common.js'))
+    @basset(base_path('vendor/tannhatcms/crud/src/resources/assets/js/common.js'))
 @endpush

@@ -12,7 +12,7 @@
 @basset('https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.ttf')
 @basset('https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.ttf')
 
-@basset(base_path('vendor/backpack/crud/src/resources/assets/css/common.css'))
+@basset(base_path('vendor/tannhatcms/crud/src/resources/assets/css/common.css'))
 
 @if (backpack_theme_config('styles') && count(backpack_theme_config('styles')))
     @foreach (backpack_theme_config('styles') as $path)
