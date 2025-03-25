@@ -2,7 +2,6 @@
 
 namespace Backpack\CRUD\app\Library\CrudPanel\Traits;
 
-use Backpack\CRUD\app\Exceptions\BackpackProRequiredException;
 use Exception;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
