@@ -1,54 +1,86 @@
-<li filter-name="{{ $filter->name }}" filter-type="{{ $filter->type }}" filter-key="{{ $filter->name }}" class="nav-item dropdown ">
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $filter->label }} <span class="caret"></span></a>
+{{-- Select2 Backpack CRUD filter --}}
+<li filter-name="{{ $filter->name }}"
+    filter-type="{{ $filter->type }}"
+    filter-key="{{ $filter->key }}"
+    class="nav-item dropdown {{ Request::get($filter->name)?'active':'' }}">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="false">{{ $filter->label }} <span class="caret"></span></a>
     <div class="dropdown-menu p-0">
         <div class="form-group backpack-filter mb-0">
             <select
-                id="filter_{{ $filter->name }}"
-                name="filter_{{ $filter->name }}"
-                class="form-control input-sm {{ $filter->type }}"
-                placeholder=""
-                data-filter-key="{{ $filter->name }}"
-                data-filter-type="{{ $filter->type }}"
+                id="filter_{{ $filter->key }}"
+                name="filter_{{ $filter->key }}"
+                class="form-control input-sm select2"
+                placeholder="{{ $filter->placeholder }}"
+                data-filter-key="{{ $filter->key }}"
+                data-filter-type="select2"
                 data-filter-name="{{ $filter->name }}"
+                data-language="{{ str_replace('_', '-', app()->getLocale()) }}"
             >
                 <option value="">-</option>
-                @foreach ($filter->values as $option)
-                <option value="{{ $loop->iteration }}" class="text-uppercase">{{ $option }}</option>
+                @if (is_array($filter->values) && count($filter->values))
+                @foreach($filter->values as $key => $value)
+                <option value="{{ $key }}"
+                        @if($filter->isActive() && $filter->currentValue == $key)
+                    selected
+                    @endif
+                    >
+                    {{ $value }}
+                </option>
                 @endforeach
+                @endif
             </select>
         </div>
     </div>
 </li>
-@push('after_styles')
+
+{{-- ########################################### --}}
+{{-- Extra CSS and JS for this particular filter --}}
+
+{{-- FILTERS EXTRA CSS  --}}
+{{-- push things in the after_styles section --}}
+
+@push('crud_list_styles')
+<!-- include select2 css-->
 @basset('https://unpkg.com/select2@4.0.13/dist/css/select2.min.css')
 @basset('https://unpkg.com/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css')
 <style>
     .form-inline .select2-container {
         display: inline-block;
     }
+
     .select2-drop-active {
-        border:none;
+        border: none;
     }
+
     .select2-container .select2-choices .select2-search-field input, .select2-container .select2-choice, .select2-container .select2-choices {
         border: none;
     }
+
     .select2-container-active .select2-choice {
         border: none;
         box-shadow: none;
     }
+
     .select2-container--bootstrap .select2-dropdown {
         margin-top: -2px;
         margin-left: -1px;
     }
+
     .select2-container--bootstrap {
-        position: relative!important;
-        top: 0px!important;
+        position: relative !important;
+        top: 0px !important;
     }
 </style>
 @endpush
-
-@push('after_scripts')
+{{-- FILTERS EXTRA JS --}}
+{{-- push things in the after_scripts section --}}
+@push('crud_list_scripts')
+<!-- include select2 js-->
 @basset('https://unpkg.com/select2@4.0.13/dist/js/select2.full.min.js')
+@if (app()->getLocale() !== 'en')
+@basset('https://unpkg.com/select2@4.0.13/dist/js/i18n/' . str_replace('_', '-', app()->getLocale()) . '.js')
+@endif
 <script>
     jQuery(document).ready(function ($) {
         // trigger select2 for each untriggered select2 box
@@ -102,6 +134,7 @@
 
             // clear filter event (used here and by the Remove all filters button)
             $("li[filter-key=" + filterKey + "]").on('filter:clear', function (e) {
+                // console.log('select2 filter cleared');
                 $("li[filter-key=" + filterKey + "]").removeClass('active');
                 $('#filter_' + filterKey).val(null).trigger('change');
             });
@@ -109,3 +142,5 @@
     });
 </script>
 @endpush
+{{-- End of Extra CSS and JS --}}
+{{-- ########################################## --}}
