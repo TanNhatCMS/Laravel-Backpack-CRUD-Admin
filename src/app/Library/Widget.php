@@ -2,7 +2,6 @@
 
 namespace Backpack\CRUD\app\Library;
 
-use Backpack\CRUD\app\Exceptions\BackpackProRequiredException;
 use Backpack\CRUD\ViewNamespaces;
 use Illuminate\Support\Fluent;
 
