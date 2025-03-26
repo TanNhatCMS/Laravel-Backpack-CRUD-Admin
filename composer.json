@@ -48,7 +48,7 @@
         "spatie/laravel-translatable": "^6.0"
     },
     "replace": {
-        "backpack/crud": "*"
+        "backpack/crud": "^6"
     },
     "autoload": {
         "psr-4": {
