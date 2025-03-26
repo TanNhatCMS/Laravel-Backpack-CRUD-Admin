@@ -87,5 +87,17 @@
         "backpack/generators": "Required on localhost to easily generate CRUDs, models, controllers etc.",
         "backpack/filemanager": "Required to use the browse and browse_multiple fields.",
         "backpack/revise-operation": "Optional operation to remember all entry changes, undo and redo them (aka audit trait)."
-    }
+    },
+    "repositories": [
+        {
+            "name": "tannhatcms/generators",
+            "type": "vcs",
+            "url": "https://github.com/TanNhatCMS/Laravel-Backpack-Generators.git"
+        },
+        {
+            "name": "tannhatcms/theme-tabler",
+            "type": "vcs",
+            "url": "https://github.com/TanNhatCMS/Laravel-Backpack-theme-tabler.git"
+        }
+    ]
 }

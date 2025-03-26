@@ -34,10 +34,10 @@ class RequireThemeTabler extends Command
             'UI provided by Tabler, a Bootstrap 5 template. Lots of new features, including a dark mode.',
             '<fg=blue>https://github.com/laravel-backpack/theme-tabler/</>',
         ],
-        'repo' => 'backpack/theme-tabler',
-        'path' => 'vendor/backpack/theme-tabler',
+        'repo' => 'tannhatcms/theme-tabler',
+        'path' => 'vendor/tannhatcms/theme-tabler',
         'command' => 'backpack:require:theme-tabler',
-        'view_namespace' => 'backpack.theme-tabler::',
+        'view_namespace' => 'tannhatcms.theme-tabler::',
         'publish_tag' => 'theme-tabler-config',
         'provider' => '\Backpack\ThemeTabler\AddonServiceProvider',
     ];

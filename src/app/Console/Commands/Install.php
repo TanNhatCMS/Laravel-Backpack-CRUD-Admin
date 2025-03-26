@@ -83,9 +83,9 @@ class Install extends Command
 
         // Install Backpack Generators
         $this->progressBlock('Installing Generators');
-        if (! file_exists('vendor/backpack/generators/composer.json')) {
+        if (! file_exists('vendor/tannhatcms/generators/composer.json')) {
             // only do this if Generators aren't already required
-            $process = new Process(['composer', 'require', '--dev', 'backpack/generators']);
+            $process = new Process(['composer', 'require', '--dev', 'tannhatcms/generators']);
             $process->setTimeout(300);
             $process->run();
         }
