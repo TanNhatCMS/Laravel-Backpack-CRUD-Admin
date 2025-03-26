@@ -36,7 +36,7 @@
     ],
     "require": {
         "laravel/framework": "^10.0|^11.0|^12",
-        "backpack/basset": "^1.1.1|^1.3.2",
+        "tannhatcms/basset": "^1.3.7",
         "creativeorange/gravatar": "^1.0",
         "prologue/alerts": "^1.0",
         "doctrine/dbal": "^3.0|^4.0",
@@ -93,6 +93,11 @@
             "name": "tannhatcms/generators",
             "type": "vcs",
             "url": "https://github.com/TanNhatCMS/Laravel-Backpack-Generators.git"
+        },
+        {
+            "name": "tannhatcms/basset",
+            "type": "vcs",
+            "url": "https://github.com/TanNhatCMS/Laravel-Backpack-basset.git"
         },
         {
             "name": "tannhatcms/theme-tabler",
