@@ -84,7 +84,7 @@
         }
     },
     "suggest": {
-        "backpack/generators": "Required on localhost to easily generate CRUDs, models, controllers etc.",
+        "tannhatcms/generators": "Required on localhost to easily generate CRUDs, models, controllers etc.",
         "backpack/filemanager": "Required to use the browse and browse_multiple fields.",
         "backpack/revise-operation": "Optional operation to remember all entry changes, undo and redo them (aka audit trait)."
     },
