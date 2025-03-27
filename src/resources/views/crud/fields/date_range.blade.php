@@ -36,8 +36,8 @@ $field['date_range_options'] = array_replace_recursive([
     'locale' => [
         'firstDay' => 0,
         'format' => config('backpack.base.default_date_format'),
-        'applyLabel'=> trans('backpack::crud.apply'),
-        'cancelLabel'=> trans('backpack::crud.cancel'),
+        'applyLabel'=> trans('tannhatcms::crud.apply'),
+        'cancelLabel'=> trans('tannhatcms::crud.cancel'),
     ],
 ], $field['date_range_options'] ?? []);
 ?>

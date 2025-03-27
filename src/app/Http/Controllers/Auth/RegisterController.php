@@ -90,10 +90,10 @@ class RegisterController extends Controller
     {
         // if registration is closed, deny access
         if (! config('backpack.base.registration_open')) {
-            abort(403, trans('backpack::base.registration_closed'));
+            abort(403, trans('tannhatcms::base.registration_closed'));
         }
 
-        $this->data['title'] = trans('backpack::base.register'); // set the page title
+        $this->data['title'] = trans('tannhatcms::base.register'); // set the page title
 
         return view(backpack_view('auth.register'), $this->data);
     }
@@ -108,7 +108,7 @@ class RegisterController extends Controller
     {
         // if registration is closed, deny access
         if (! config('backpack.base.registration_open')) {
-            abort(403, trans('backpack::base.registration_closed'));
+            abort(403, trans('tannhatcms::base.registration_closed'));
         }
 
         $this->validator($request->all())->validate();

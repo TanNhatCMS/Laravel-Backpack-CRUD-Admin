@@ -35,11 +35,11 @@
 		$wrapper['data-button-type'] = 'quick-ajax';
 
         //success message
-        $wrapper['data-success-title'] = $button->meta['ajax']['success_title'] ?? trans('backpack::crud.quick_button_ajax_success_title');
-        $wrapper['data-success-message'] = $button->meta['ajax']['success_message'] ?? trans('backpack::crud.quick_button_ajax_success_message');
+        $wrapper['data-success-title'] = $button->meta['ajax']['success_title'] ?? trans('tannhatcms::crud.quick_button_ajax_success_title');
+        $wrapper['data-success-message'] = $button->meta['ajax']['success_message'] ?? trans('tannhatcms::crud.quick_button_ajax_success_message');
         //error message
-        $wrapper['data-error-title'] = $button->meta['ajax']['error_title'] ?? trans('backpack::crud.quick_button_ajax_error_title');
-        $wrapper['data-error-message']  = $button->meta['ajax']['error_message'] ?? trans('backpack::crud.quick_button_ajax_error_message');
+        $wrapper['data-error-title'] = $button->meta['ajax']['error_title'] ?? trans('tannhatcms::crud.quick_button_ajax_error_title');
+        $wrapper['data-error-message']  = $button->meta['ajax']['error_message'] ?? trans('tannhatcms::crud.quick_button_ajax_error_message');
     }
     //endif ajax enabled
 @endphp

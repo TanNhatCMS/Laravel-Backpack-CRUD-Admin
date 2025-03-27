@@ -2,9 +2,9 @@
 
 @php
   $defaultBreadcrumbs = [
-    trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
+    trans('tannhatcms::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
     $crud->entity_name_plural => url($crud->route),
-    trans('backpack::crud.list') => false,
+    trans('tannhatcms::crud.list') => false,
   ];
 
   // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
@@ -42,7 +42,7 @@
                 <span class="input-icon-addon">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
                 </span>
-                <input type="search" class="form-control" placeholder="{{ trans('backpack::crud.search') }}..."/>
+                <input type="search" class="form-control" placeholder="{{ trans('tannhatcms::crud.search') }}..."/>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@
                       data-priority="{{ $crud->getActionsColumnPriority() }}"
                       data-visible-in-export="false"
                       data-action-column="true"
-                      >{{ trans('backpack::crud.actions') }}</th>
+                      >{{ trans('tannhatcms::crud.actions') }}</th>
                 @endif
               </tr>
             </thead>
@@ -129,7 +129,7 @@
                 @endforeach
 
                 @if ( $crud->buttons()->where('stack', 'line')->count() )
-                  <th>{{ trans('backpack::crud.actions') }}</th>
+                  <th>{{ trans('tannhatcms::crud.actions') }}</th>
                 @endif
               </tr>
             </tfoot>

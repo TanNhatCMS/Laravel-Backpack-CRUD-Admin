@@ -19,7 +19,7 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-        $this->data['title'] = trans('backpack::base.login'); // set the page title
+        $this->data['title'] = trans('tannhatcms::base.login'); // set the page title
         $this->data['username'] = $this->username();
 
         return view(backpack_view('auth.login'), $this->data);

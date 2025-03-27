@@ -57,7 +57,7 @@ trait ShowOperation
 
                     return $redirectUrl;
                 },
-                'button_text' => trans('backpack::crud.save_action_save_and_preview'),
+                'button_text' => trans('tannhatcms::crud.save_action_save_and_preview'),
             ]);
         });
     }
@@ -83,7 +83,7 @@ trait ShowOperation
         }
 
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.preview').' '.$this->crud->entity_name;
+        $this->data['title'] = $this->crud->getTitle() ?? trans('tannhatcms::crud.preview').' '.$this->crud->entity_name;
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getShowView(), $this->data);

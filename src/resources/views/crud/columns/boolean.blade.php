@@ -15,7 +15,7 @@
             $column['text'] = $column['options'][1];
             $column['escaped'] = false;
         } else {
-            $column['text'] = Lang::has('backpack::crud.yes') ? trans('backpack::crud.yes') : 'Yes';
+            $column['text'] = Lang::has('backpack::crud.yes') ? trans('tannhatcms::crud.yes') : 'Yes';
         }
     } else {
         $related_key = 0;
@@ -23,7 +23,7 @@
             $column['text'] = $column['options'][0];
             $column['escaped'] = false;
         } else {
-            $column['text'] = Lang::has('backpack::crud.no') ? trans('backpack::crud.no') : 'No';
+            $column['text'] = Lang::has('backpack::crud.no') ? trans('tannhatcms::crud.no') : 'No';
         }
     }
 

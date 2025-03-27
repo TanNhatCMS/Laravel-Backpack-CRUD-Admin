@@ -1,6 +1,6 @@
 @if ($crud->hasAccess('delete', $entry))
     <a href="javascript:void(0)" onclick="deleteEntry(this)" bp-button="delete" data-route="{{ url($crud->route.'/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="delete">
-        <i class="la la-trash"></i> <span>{{ trans('backpack::crud.delete') }}</span>
+        <i class="la la-trash"></i> <span>{{ trans('tannhatcms::crud.delete') }}</span>
     </a>
 @endif
 
@@ -20,19 +20,19 @@
 		var route = $(button).attr('data-route');
 
 		swal({
-		  title: "{!! trans('backpack::base.warning') !!}",
-		  text: "{!! trans('backpack::crud.delete_confirm') !!}",
+		  title: "{!! trans('tannhatcms::base.warning') !!}",
+		  text: "{!! trans('tannhatcms::crud.delete_confirm') !!}",
 		  icon: "warning",
 		  buttons: {
 		  	cancel: {
-				text: "{!! trans('backpack::crud.cancel') !!}",
+				text: "{!! trans('tannhatcms::crud.cancel') !!}",
 				value: null,
 				visible: true,
 				className: "bg-secondary",
 				closeModal: true,
 			},
 			delete: {
-				text: "{!! trans('backpack::crud.delete') !!}",
+				text: "{!! trans('tannhatcms::crud.delete') !!}",
 				value: true,
 				visible: true,
 				className: "bg-danger",
@@ -59,7 +59,7 @@
 			          	  // Show a success notification bubble
 			              new Noty({
 		                    type: "success",
-		                    text: "{!! '<strong>'.trans('backpack::crud.delete_confirmation_title').'</strong><br>'.trans('backpack::crud.delete_confirmation_message') !!}"
+		                    text: "{!! '<strong>'.trans('tannhatcms::crud.delete_confirmation_title').'</strong><br>'.trans('tannhatcms::crud.delete_confirmation_message') !!}"
 		                  }).show();
 
 			              // Hide the modal, if any
@@ -80,8 +80,8 @@
 			          	  	});
 			          	  } else {// Show an error alert
 				              swal({
-				              	title: "{!! trans('backpack::crud.delete_confirmation_not_title') !!}",
-	                            text: "{!! trans('backpack::crud.delete_confirmation_not_message') !!}",
+				              	title: "{!! trans('tannhatcms::crud.delete_confirmation_not_title') !!}",
+	                            text: "{!! trans('tannhatcms::crud.delete_confirmation_not_message') !!}",
 				              	icon: "error",
 				              	timer: 4000,
 				              	buttons: false,
@@ -92,8 +92,8 @@
 			      error: function(result) {
 			          // Show an alert with the result
 			          swal({
-		              	title: "{!! trans('backpack::crud.delete_confirmation_not_title') !!}",
-                        text: "{!! trans('backpack::crud.delete_confirmation_not_message') !!}",
+		              	title: "{!! trans('tannhatcms::crud.delete_confirmation_not_title') !!}",
+                        text: "{!! trans('tannhatcms::crud.delete_confirmation_not_message') !!}",
 		              	icon: "error",
 		              	timer: 4000,
 		              	buttons: false,

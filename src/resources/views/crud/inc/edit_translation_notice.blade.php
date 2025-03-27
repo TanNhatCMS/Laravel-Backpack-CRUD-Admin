@@ -36,12 +36,12 @@
         $showTranslationNotice ??= empty($translatedAttributes) && ! empty($entry->getTranslatableAttributes()) && ! $crud->getRequest()->input('_fallback_locale');
 
         if($showTranslationNotice) {
-            $translationNoticeText = trans('backpack::crud.no_attributes_translated', ['locale' => $translatableLocales[$editLocale]]).'<br/>';
+            $translationNoticeText = trans('tannhatcms::crud.no_attributes_translated', ['locale' => $translatableLocales[$editLocale]]).'<br/>';
             if(count($translatedLocales) === 1) {
-                $translationNoticeText .= '<a href="'.url($crud->route.'/'.$entry->getKey().'/edit').'?_locale='.$editLocale.'&_fallback_locale='.current($translatedLocales).'" class="text-white"> > '.trans('backpack::crud.no_attributes_translated_href_text', ['locale' => $translatableLocales[current($translatedLocales)]]).'</a>';
+                $translationNoticeText .= '<a href="'.url($crud->route.'/'.$entry->getKey().'/edit').'?_locale='.$editLocale.'&_fallback_locale='.current($translatedLocales).'" class="text-white"> > '.trans('tannhatcms::crud.no_attributes_translated_href_text', ['locale' => $translatableLocales[current($translatedLocales)]]).'</a>';
             }else {
                 foreach($translatedLocales as $locale) {
-                    $translationNoticeText .= '<a href="'.url($crud->route.'/'.$entry->getKey().'/edit').'?_locale='.$editLocale.'&_fallback_locale='.$locale.'" class="text-white"> > '.trans('backpack::crud.no_attributes_translated_href_text', ['locale' => $translatableLocales[$locale]]).' </a><br/>';
+                    $translationNoticeText .= '<a href="'.url($crud->route.'/'.$entry->getKey().'/edit').'?_locale='.$editLocale.'&_fallback_locale='.$locale.'" class="text-white"> > '.trans('tannhatcms::crud.no_attributes_translated_href_text', ['locale' => $translatableLocales[$locale]]).' </a><br/>';
                 }
             }
         }
@@ -55,7 +55,7 @@
             data-bs-toggle="dropdown" 
             aria-haspopup="true" 
             aria-expanded="false">
-            {{trans('backpack::crud.language')}}: {{ $crud->model->getAvailableLocales()[$editLocale] }} &nbsp; <span class="caret"></span>
+            {{trans('tannhatcms::crud.language')}}: {{ $crud->model->getAvailableLocales()[$editLocale] }} &nbsp; <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
         @foreach ($crud->model->getAvailableLocales() as $key => $locale)

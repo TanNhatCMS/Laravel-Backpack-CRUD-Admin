@@ -1,5 +1,5 @@
 @if ($crud->hasAccess('clone'))
-<a href="javascript:void(0)" onclick="cloneEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey().'/clone') }}" class="btn btn-sm btn-link" data-button-type="clone"><i class="la la-copy"></i> {{ trans('backpack::crud.clone') }}</a>
+<a href="javascript:void(0)" onclick="cloneEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey().'/clone') }}" class="btn btn-sm btn-link" data-button-type="clone"><i class="la la-copy"></i> {{ trans('tannhatcms::crud.clone') }}</a>
 @endif
 
 {{-- Button Javascript --}}
@@ -23,7 +23,7 @@
                     // Show an alert with the result
                     new Noty({
                         type: "success",
-                        text: "{!! trans('backpack::crud.clone_success') !!}"
+                        text: "{!! trans('tannhatcms::crud.clone_success') !!}"
                     }).show();
 
                     // Hide the modal, if any
@@ -37,7 +37,7 @@
                     // Show an alert with the result
                     new Noty({
                         type: "warning",
-                        text: "{!! trans('backpack::crud.clone_failure') !!}"
+                        text: "{!! trans('tannhatcms::crud.clone_failure') !!}"
                     }).show();
                 }
             });

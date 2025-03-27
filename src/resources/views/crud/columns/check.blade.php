@@ -14,8 +14,8 @@
         : ($column['icons']['unchecked'] ?? 'la-circle');
 
     $column['text'] = $column['value'] != false
-        ? ($column['labels']['checked'] ?? trans('backpack::crud.yes'))
-        : ($column['labels']['unchecked'] ?? trans('backpack::crud.no'));
+        ? ($column['labels']['checked'] ?? trans('tannhatcms::crud.yes'))
+        : ($column['labels']['unchecked'] ?? trans('tannhatcms::crud.no'));
 
     $column['text'] = $column['prefix'].$column['text'].$column['suffix'];
 @endphp

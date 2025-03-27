@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ trans('backpack::base.error_page.title', ['error' => $error_number]) }}</title>
+        <title>{{ trans('tannhatcms::base.error_page.title', ['error' => $error_number]) }}</title>
         <style>
           .error_number {
               font-size: 156px;

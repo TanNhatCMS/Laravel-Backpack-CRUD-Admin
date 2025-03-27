@@ -57,7 +57,7 @@ trait HasForm
                 'redirect' => function ($crud, $request, $itemId = null) {
                     return $request->request->has('_http_referrer') ? $request->request->get('_http_referrer') : $crud->route;
                 },
-                'button_text' => trans('backpack::crud.save_action_save_and_back'),
+                'button_text' => trans('tannhatcms::crud.save_action_save_and_back'),
             ]);
         });
 

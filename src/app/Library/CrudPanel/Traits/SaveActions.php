@@ -313,7 +313,7 @@ trait SaveActions
             $showBubble &&
             session($this->getCurrentOperation().'.saveAction', 'save_and_back') !== $saveAction
         ) {
-            \Alert::info(trans('backpack::crud.save_action_changed_notification'))->flash();
+            \Alert::info(trans('tannhatcms::crud.save_action_changed_notification'))->flash();
         }
 
         session([$this->getCurrentOperation().'.saveAction' => $saveAction]);
@@ -379,7 +379,7 @@ trait SaveActions
                 'redirect' => function ($crud, $request, $itemId = null) {
                     return $request->has('_http_referrer') ? $request->get('_http_referrer') : $crud->route;
                 },
-                'button_text' => trans('backpack::crud.save_action_save_and_back'),
+                'button_text' => trans('tannhatcms::crud.save_action_save_and_back'),
             ],
             [
                 'name' => 'save_and_edit',
@@ -401,7 +401,7 @@ trait SaveActions
                 'referrer_url' => function ($crud, $request, $itemId) {
                     return url($crud->route.'/'.$itemId.'/edit');
                 },
-                'button_text' => trans('backpack::crud.save_action_save_and_edit'),
+                'button_text' => trans('tannhatcms::crud.save_action_save_and_edit'),
             ],
             [
                 'name' => 'save_and_new',
@@ -411,7 +411,7 @@ trait SaveActions
                 'redirect' => function ($crud, $request, $itemId = null) {
                     return $this->route.'/create';
                 },
-                'button_text' => trans('backpack::crud.save_action_save_and_new'),
+                'button_text' => trans('tannhatcms::crud.save_action_save_and_new'),
             ],
         ];
 

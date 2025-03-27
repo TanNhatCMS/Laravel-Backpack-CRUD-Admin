@@ -7,7 +7,7 @@
 			@include(backpack_view('inc.widgets'), ['widgets' => $widgets])
 		@else
 			<div class="col-md-12">
-				{{ trans('backpack::crud.details_row') }}
+				{{ trans('tannhatcms::crud.details_row') }}
 			</div>
 		@endif
 	</div>

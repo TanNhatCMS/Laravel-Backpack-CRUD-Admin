@@ -3,9 +3,9 @@
 
 <?php
 $field['options'] = [
-    'page_link'     => trans('backpack::crud.page_link'),
-    'internal_link' => trans('backpack::crud.internal_link'),
-    'external_link' => trans('backpack::crud.external_link'),
+    'page_link'     => trans('tannhatcms::crud.page_link'),
+    'internal_link' => trans('tannhatcms::crud.internal_link'),
+    'external_link' => trans('tannhatcms::crud.external_link'),
 ];
 $field['allows_null'] = false;
 $page_model = $field['page_model'];
@@ -52,7 +52,7 @@ $entry_page_id = $field['name']['page_id'] ?? 'page_id';
                 type="url"
                 class="form-control"
                 name="{!! $entry_link !!}"
-                placeholder="{{ trans('backpack::crud.page_link_placeholder') }}"
+                placeholder="{{ trans('tannhatcms::crud.page_link_placeholder') }}"
 
                 @if (!isset($entry) || $entry->$entry_type !='external_link')
             disabled="disabled"
@@ -71,7 +71,7 @@ $entry_page_id = $field['name']['page_id'] ?? 'page_id';
                 type="text"
                 class="form-control"
                 name="{!! $entry_link !!}"
-                placeholder="{{ trans('backpack::crud.internal_link_placeholder', ['url', url(config('backpack.base.route_prefix').'/page')]) }}"
+                placeholder="{{ trans('tannhatcms::crud.internal_link_placeholder', ['url', url(config('backpack.base.route_prefix').'/page')]) }}"
 
                 @if (!isset($entry) || $entry->$entry_type!='internal_link')
             disabled="disabled"

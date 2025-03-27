@@ -49,7 +49,7 @@ class ResetPasswordController extends Controller
         $this->middleware("guest:$guard");
 
         if (! backpack_users_have_email()) {
-            abort(501, trans('backpack::base.no_email_column'));
+            abort(501, trans('tannhatcms::base.no_email_column'));
         }
 
         // where to redirect after password was reset
@@ -71,7 +71,7 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('tannhatcms::base.reset_password'); // set the page title
 
         return view(backpack_view('auth.passwords.reset'), $this->data)->with(
             ['token' => $token, 'email' => $request->email]

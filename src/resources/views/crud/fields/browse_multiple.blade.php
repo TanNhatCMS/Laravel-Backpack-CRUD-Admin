@@ -40,11 +40,11 @@ $field['wrapper']['sortable'] = "true";
 <div class="btn-group" role="group" aria-label="..." style="margin-top: 3px;">
     <button type="button" class="browse popup btn btn-sm btn-light">
         <i class="la la-cloud-upload"></i>
-        {{ trans('backpack::crud.browse_uploads') }}
+        {{ trans('tannhatcms::crud.browse_uploads') }}
     </button>
     <button type="button" class="browse clear btn btn-sm btn-light">
         <i class="la la-eraser"></i>
-        {{ trans('backpack::crud.clear') }}
+        {{ trans('tannhatcms::crud.clear') }}
     </button>
 </div>
 

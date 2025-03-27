@@ -254,35 +254,35 @@
         /* Disable initial sort */
         aaSorting: [],
         language: {
-              "emptyTable":     "{{ trans('backpack::crud.emptyTable') }}",
-              "info":           "{{ trans('backpack::crud.info') }}",
-              "infoEmpty":      "{{ trans('backpack::crud.infoEmpty') }}",
-              "infoFiltered":   "{{ trans('backpack::crud.infoFiltered') }}",
-              "infoPostFix":    "{{ trans('backpack::crud.infoPostFix') }}",
-              "thousands":      "{{ trans('backpack::crud.thousands') }}",
-              "lengthMenu":     "{{ trans('backpack::crud.lengthMenu') }}",
-              "loadingRecords": "{{ trans('backpack::crud.loadingRecords') }}",
-              "processing":     "<img src='{{ Basset::getUrl('vendor/backpack/crud/src/resources/assets/img/spinner.svg') }}' alt='{{ trans('backpack::crud.processing') }}'>",
+              "emptyTable":     "{{ trans('tannhatcms::crud.emptyTable') }}",
+              "info":           "{{ trans('tannhatcms::crud.info') }}",
+              "infoEmpty":      "{{ trans('tannhatcms::crud.infoEmpty') }}",
+              "infoFiltered":   "{{ trans('tannhatcms::crud.infoFiltered') }}",
+              "infoPostFix":    "{{ trans('tannhatcms::crud.infoPostFix') }}",
+              "thousands":      "{{ trans('tannhatcms::crud.thousands') }}",
+              "lengthMenu":     "{{ trans('tannhatcms::crud.lengthMenu') }}",
+              "loadingRecords": "{{ trans('tannhatcms::crud.loadingRecords') }}",
+              "processing":     "<img src='{{ Basset::getUrl('vendor/backpack/crud/src/resources/assets/img/spinner.svg') }}' alt='{{ trans('tannhatcms::crud.processing') }}'>",
               "search": "_INPUT_",
-              "searchPlaceholder": "{{ trans('backpack::crud.search') }}...",
-              "zeroRecords":    "{{ trans('backpack::crud.zeroRecords') }}",
+              "searchPlaceholder": "{{ trans('tannhatcms::crud.search') }}...",
+              "zeroRecords":    "{{ trans('tannhatcms::crud.zeroRecords') }}",
               "paginate": {
-                  "first":      "{{ trans('backpack::crud.paginate.first') }}",
-                  "last":       "{{ trans('backpack::crud.paginate.last') }}",
+                  "first":      "{{ trans('tannhatcms::crud.paginate.first') }}",
+                  "last":       "{{ trans('tannhatcms::crud.paginate.last') }}",
                   "next":       '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5l5 5l-5 5"></path></svg>',
                   "previous":   '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-5 5l5 5"></path></svg>'
               },
               "aria": {
-                  "sortAscending":  "{{ trans('backpack::crud.aria.sortAscending') }}",
-                  "sortDescending": "{{ trans('backpack::crud.aria.sortDescending') }}"
+                  "sortAscending":  "{{ trans('tannhatcms::crud.aria.sortAscending') }}",
+                  "sortDescending": "{{ trans('tannhatcms::crud.aria.sortDescending') }}"
               },
               "buttons": {
-                  "copy":   "{{ trans('backpack::crud.export.copy') }}",
-                  "excel":  "{{ trans('backpack::crud.export.excel') }}",
-                  "csv":    "{{ trans('backpack::crud.export.csv') }}",
-                  "pdf":    "{{ trans('backpack::crud.export.pdf') }}",
-                  "print":  "{{ trans('backpack::crud.export.print') }}",
-                  "colvis": "{{ trans('backpack::crud.export.column_visibility') }}"
+                  "copy":   "{{ trans('tannhatcms::crud.export.copy') }}",
+                  "excel":  "{{ trans('tannhatcms::crud.export.excel') }}",
+                  "csv":    "{{ trans('tannhatcms::crud.export.csv') }}",
+                  "pdf":    "{{ trans('tannhatcms::crud.export.pdf') }}",
+                  "print":  "{{ trans('tannhatcms::crud.export.print') }}",
+                  "colvis": "{{ trans('tannhatcms::crud.export.column_visibility') }}"
               },
           },
           processing: true,
@@ -336,7 +336,7 @@
 
       @if($crud->getOperationSetting('resetButton') ?? true)
         // create the reset button
-        var crudTableResetButton = '<a href="{{url($crud->route)}}" class="ml-1 ms-1" id="crudTable_reset_button">{{ trans('backpack::crud.reset') }}</a>';
+        var crudTableResetButton = '<a href="{{url($crud->route)}}" class="ml-1 ms-1" id="crudTable_reset_button">{{ trans('tannhatcms::crud.reset') }}</a>';
 
         $('#datatable_info_stack').append(crudTableResetButton);
 
@@ -366,7 +366,7 @@
       $('#crudTable').on('error.dt', function(e, settings, techNote, message) {
           new Noty({
               type: "error",
-              text: "<strong>{{ trans('backpack::crud.ajax_error_title') }}</strong><br>{{ trans('backpack::crud.ajax_error_text') }}"
+              text: "<strong>{{ trans('tannhatcms::crud.ajax_error_title') }}</strong><br>{{ trans('tannhatcms::crud.ajax_error_text') }}"
           }).show();
       });
 
@@ -480,7 +480,7 @@
                 actionCell.wrapInner('<div class="nav-item dropdown"></div>');
                 actionCell.wrapInner('<div class="dropdown-menu dropdown-menu-left"></div>');
 
-                actionCell.prepend('<a class="btn btn-sm px-2 py-1 btn-outline-primary dropdown-toggle actions-buttons-column" href="#" data-toggle="dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{ trans('backpack::crud.actions') }}</a>');
+                actionCell.prepend('<a class="btn btn-sm px-2 py-1 btn-outline-primary dropdown-toggle actions-buttons-column" href="#" data-toggle="dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{ trans('tannhatcms::crud.actions') }}</a>');
 
                 // Move the remaining buttons outside the dropdown
                 const remainingButtons = actionButtons.slice(0, buttonsToShowBeforeDropdown);

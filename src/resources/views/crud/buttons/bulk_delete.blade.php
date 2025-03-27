@@ -1,5 +1,5 @@
 @if ($crud->hasAccess('bulkDelete') && $crud->get('list.bulkActions'))
-<a href="javascript:void(0)" onclick="bulkDeleteEntries(this)" class="btn btn-sm btn-secondary bulk-button"><i class="la la-trash"></i> {{ trans('backpack::crud.delete') }}</a>
+<a href="javascript:void(0)" onclick="bulkDeleteEntries(this)" class="btn btn-sm btn-secondary bulk-button"><i class="la la-trash"></i> {{ trans('tannhatcms::crud.delete') }}</a>
 @endif
 
 @push('after_scripts')
@@ -11,30 +11,30 @@
             {
                 new Noty({
                     type: "warning",
-                    text: "<strong>{!! trans('backpack::crud.bulk_no_entries_selected_title') !!}</strong><br>{!! trans('backpack::crud.bulk_no_entries_selected_message') !!}"
+                    text: "<strong>{!! trans('tannhatcms::crud.bulk_no_entries_selected_title') !!}</strong><br>{!! trans('tannhatcms::crud.bulk_no_entries_selected_message') !!}"
                 }).show();
 
                 return;
             }
 
-            var message = ("{!! trans('backpack::crud.bulk_delete_are_you_sure') !!}").replace(":number", crud.checkedItems.length);
+            var message = ("{!! trans('tannhatcms::crud.bulk_delete_are_you_sure') !!}").replace(":number", crud.checkedItems.length);
             var button = $(this);
 
             // show confirm message
             swal({
-                title: "{!! trans('backpack::base.warning') !!}",
+                title: "{!! trans('tannhatcms::base.warning') !!}",
                 text: message,
                 icon: "warning",
                 buttons: {
                     cancel: {
-                        text: "{!! trans('backpack::crud.cancel') !!}",
+                        text: "{!! trans('tannhatcms::crud.cancel') !!}",
                         value: null,
                         visible: true,
                         className: "bg-secondary",
                         closeModal: true,
                     },
                     delete: {
-                        text: "{!! trans('backpack::crud.delete') !!}",
+                        text: "{!! trans('tannhatcms::crud.delete') !!}",
                         value: true,
                         visible: true,
                         className: "bg-danger",
@@ -55,7 +55,7 @@
                                 // Show a success notification bubble
                                 new Noty({
                                     type: "success",
-                                    text: "<strong>{!! trans('backpack::crud.bulk_delete_sucess_title') !!}</strong><br>"+crud.checkedItems.length+"{!! trans('backpack::crud.bulk_delete_sucess_message') !!}"
+                                    text: "<strong>{!! trans('tannhatcms::crud.bulk_delete_sucess_title') !!}</strong><br>"+crud.checkedItems.length+"{!! trans('tannhatcms::crud.bulk_delete_sucess_message') !!}"
                                 }).show();
                             } else {
                                 // if the result is an array, it means
@@ -75,7 +75,7 @@
                                     // Show a warning notification bubble
                                     new Noty({
                                         type: "warning",
-                                        text: "<strong>{!! trans('backpack::crud.bulk_delete_error_title') !!}</strong><br>{!! trans('backpack::crud.bulk_delete_error_message') !!}"
+                                        text: "<strong>{!! trans('tannhatcms::crud.bulk_delete_error_title') !!}</strong><br>{!! trans('tannhatcms::crud.bulk_delete_error_message') !!}"
                                     }).show();
                                 }
                             }
@@ -92,7 +92,7 @@
                             // Show an alert with the result
                             new Noty({
                                 type: "warning",
-                                text: "<strong>{!! trans('backpack::crud.bulk_delete_error_title') !!}</strong><br>{!! trans('backpack::crud.bulk_delete_error_message') !!}"
+                                text: "<strong>{!! trans('tannhatcms::crud.bulk_delete_error_title') !!}</strong><br>{!! trans('tannhatcms::crud.bulk_delete_error_message') !!}"
                             }).show();
                         }
                     });

@@ -36,7 +36,7 @@
         @if($crud->get('list.showExportButton'))
         {
             extend: 'collection',
-            text: '<i class="la la-download"></i> {{ trans('backpack::crud.export.export') }}',
+            text: '<i class="la la-download"></i> {{ trans('tannhatcms::crud.export.export') }}',
             dropup: true,
             buttons: [
                 {
@@ -126,7 +126,7 @@
         @if($crud->get('list.showTableColumnPicker'))
         ,{
             extend: 'colvis',
-            text: '<i class="la la-eye-slash"></i> {{ trans('backpack::crud.export.column_visibility') }}',
+            text: '<i class="la la-eye-slash"></i> {{ trans('tannhatcms::crud.export.column_visibility') }}',
             columns: function ( idx, data, node ) {
                 return $(node).attr('data-can-be-visible-in-table') == 'true';
             },

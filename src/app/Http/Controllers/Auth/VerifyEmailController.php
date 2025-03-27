@@ -28,7 +28,7 @@ class VerifyEmailController extends Controller
         $this->middleware('throttle:'.config('backpack.base.email_verification_throttle_access'))->only('resendVerificationEmail');
 
         if (! backpack_users_have_email()) {
-            abort(500, trans('backpack::base.no_email_column'));
+            abort(500, trans('tannhatcms::base.no_email_column'));
         }
         // where to redirect after the email is verified
         $this->redirectTo = $this->redirectTo ?? backpack_url('dashboard');
@@ -67,7 +67,7 @@ class VerifyEmailController extends Controller
         }
 
         $user->sendEmailVerificationNotification();
-        Alert::success(trans('backpack.base.verify_email.email_sent_with_success'))->flash();
+        Alert::success(trans('tannhatcms.base.verify_email.email_sent_with_success'))->flash();
 
         return back()->with('status', 'verification-link-sent');
     }

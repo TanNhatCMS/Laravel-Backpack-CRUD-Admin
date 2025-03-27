@@ -53,7 +53,7 @@
         {{-- Display action column--}}
         @if($crud->buttons()->where('stack', 'line')->count())
             <div class="text-center mt-4 {{ $horizontalTabs ? '' : 'offset-md-3 col-md-9' }}">
-                <p class="mb-0"><strong>{{ trans('backpack::crud.actions') }}:</strong></p>
+                <p class="mb-0"><strong>{{ trans('tannhatcms::crud.actions') }}:</strong></p>
                 <p>@include('crud::inc.button_stack', ['stack' => 'line'])</p>
             </div>
         @endif

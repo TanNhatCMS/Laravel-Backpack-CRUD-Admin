@@ -26,11 +26,11 @@
         @endif
     @endif
     @if(!$crud->hasOperationSetting('showCancelButton') || $crud->getOperationSetting('showCancelButton') == true)
-        <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-secondary text-decoration-none"><span class="la la-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
+        <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-secondary text-decoration-none"><span class="la la-ban"></span> &nbsp;{{ trans('tannhatcms::crud.cancel') }}</a>
     @endif
 
     @if ($crud->get('update.showDeleteButton') && $crud->get('delete.configuration') && $crud->hasAccess('delete'))
-        <button onclick="confirmAndDeleteEntry()" type="button" class="btn btn-danger float-right float-end"><i class="la la-trash-alt"></i> {{ trans('backpack::crud.delete') }}</button>
+        <button onclick="confirmAndDeleteEntry()" type="button" class="btn btn-danger float-right float-end"><i class="la la-trash-alt"></i> {{ trans('tannhatcms::crud.delete') }}</button>
     @endif
 </div>
 
@@ -118,19 +118,19 @@
     function confirmAndDeleteEntry() {
         // Ask for confirmation before deleting an item
         swal({
-            title: "{!! trans('backpack::base.warning') !!}",
-            text: "{!! trans('backpack::crud.delete_confirm') !!}",
+            title: "{!! trans('tannhatcms::base.warning') !!}",
+            text: "{!! trans('tannhatcms::crud.delete_confirm') !!}",
             icon: "warning",
             buttons: {
 		  	cancel: {
-				text: "{!! trans('backpack::crud.cancel') !!}",
+				text: "{!! trans('tannhatcms::crud.cancel') !!}",
 				value: null,
 				visible: true,
 				className: "bg-secondary",
 				closeModal: true,
 			},
 			delete: {
-				text: "{!! trans('backpack::crud.delete') !!}",
+				text: "{!! trans('tannhatcms::crud.delete') !!}",
 				value: true,
 				visible: true,
 				className: "bg-danger",
@@ -159,8 +159,8 @@
                                 });
                             } else { // Show an error alert
                                 swal({
-                                    title: "{!! trans('backpack::crud.delete_confirmation_not_title') !!}",
-                                    text: "{!! trans('backpack::crud.delete_confirmation_not_message') !!}",
+                                    title: "{!! trans('tannhatcms::crud.delete_confirmation_not_title') !!}",
+                                    text: "{!! trans('tannhatcms::crud.delete_confirmation_not_message') !!}",
                                     icon: "error",
                                     timer: 4000,
                                     buttons: false,
@@ -169,8 +169,8 @@
                         }
                         // All is good, show a success message!
                         swal({
-                            title: "{!! trans('backpack::crud.delete_confirmation_title') !!}",
-                            text: "{!! trans('backpack::crud.delete_confirmation_message') !!}",
+                            title: "{!! trans('tannhatcms::crud.delete_confirmation_title') !!}",
+                            text: "{!! trans('tannhatcms::crud.delete_confirmation_message') !!}",
                             icon: "success",
                             buttons: false,
                             closeOnClickOutside: false,
@@ -185,8 +185,8 @@
                     error: function() {
                         // Show an alert with the result
                         swal({
-                            title: "{!! trans('backpack::crud.delete_confirmation_not_title') !!}",
-                            text: "{!! trans('backpack::crud.delete_confirmation_not_message') !!}",
+                            title: "{!! trans('tannhatcms::crud.delete_confirmation_not_title') !!}",
+                            text: "{!! trans('tannhatcms::crud.delete_confirmation_not_message') !!}",
                             icon: "error",
                             timer: 4000,
                             buttons: false,

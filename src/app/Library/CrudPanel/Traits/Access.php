@@ -85,7 +85,7 @@ trait Access
     public function hasAccessOrFail(string $operation, ?Model $entry = null): bool
     {
         if (! $this->hasAccess($operation, $entry)) {
-            throw new AccessDeniedException(trans('backpack::crud.unauthorized_access', ['access' => $operation]), 403);
+            throw new AccessDeniedException(trans('tannhatcms::crud.unauthorized_access', ['access' => $operation]), 403);
         }
 
         return true;

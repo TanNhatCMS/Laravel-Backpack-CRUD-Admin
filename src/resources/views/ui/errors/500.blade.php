@@ -6,9 +6,9 @@
 @endphp
 
 @section('title')
-  {{ trans('backpack::base.error_page.500') }}
+  {{ trans('tannhatcms::base.error_page.500') }}
 @endsection
 
 @section('description')
-  {!! $exception?->getMessage() && config('app.debug') ? ($shouldEscape ? e($exception->getMessage()) : $exception->getMessage()) : trans('backpack::base.error_page.message_500') !!}
+  {!! $exception?->getMessage() && config('app.debug') ? ($shouldEscape ? e($exception->getMessage()) : $exception->getMessage()) : trans('tannhatcms::base.error_page.message_500') !!}
 @endsection

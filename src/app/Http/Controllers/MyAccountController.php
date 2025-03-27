@@ -24,7 +24,7 @@ class MyAccountController extends Controller
      */
     public function getAccountInfoForm()
     {
-        $this->data['title'] = trans('backpack::base.my_account');
+        $this->data['title'] = trans('tannhatcms::base.my_account');
         $this->data['user'] = $this->guard()->user();
 
         return view(backpack_view('my_account'), $this->data);
@@ -38,9 +38,9 @@ class MyAccountController extends Controller
         $result = $this->guard()->user()->update($request->except(['_token']));
 
         if ($result) {
-            Alert::success(trans('backpack::base.account_updated'))->flash();
+            Alert::success(trans('tannhatcms::base.account_updated'))->flash();
         } else {
-            Alert::error(trans('backpack::base.error_saving'))->flash();
+            Alert::error(trans('tannhatcms::base.error_saving'))->flash();
         }
 
         return redirect()->back();
@@ -55,9 +55,9 @@ class MyAccountController extends Controller
         $user->password = Hash::make($request->new_password);
 
         if ($user->save()) {
-            Alert::success(trans('backpack::base.account_updated'))->flash();
+            Alert::success(trans('tannhatcms::base.account_updated'))->flash();
         } else {
-            Alert::error(trans('backpack::base.error_saving'))->flash();
+            Alert::error(trans('tannhatcms::base.error_saving'))->flash();
         }
 
         // If the AuthenticateSessions middleware is being used

@@ -77,7 +77,7 @@ trait UpdateOperation
 
         $this->data['crud'] = $this->crud;
         $this->data['saveAction'] = $this->crud->getSaveAction();
-        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.edit').' '.$this->crud->entity_name;
+        $this->data['title'] = $this->crud->getTitle() ?? trans('tannhatcms::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
@@ -107,7 +107,7 @@ trait UpdateOperation
         $this->data['entry'] = $this->crud->entry = $item;
 
         // show a success message
-        \Alert::success(trans('backpack::crud.update_success'))->flash();
+        \Alert::success(trans('tannhatcms::crud.update_success'))->flash();
 
         // save the redirect choice for next time
         $this->crud->setSaveAction();

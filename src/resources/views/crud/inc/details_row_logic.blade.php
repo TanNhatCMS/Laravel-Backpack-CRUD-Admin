@@ -40,7 +40,7 @@
                       $('div.table_row_slider', row.child()).slideDown();
                     })
                     .fail(function(data) {
-                      row.child("<div class='table_row_slider'>{{ trans('backpack::crud.details_row_loading_error') }}</div>").show();
+                      row.child("<div class='table_row_slider'>{{ trans('tannhatcms::crud.details_row_loading_error') }}</div>").show();
                       tr.addClass('shown');
                       $('div.table_row_slider', row.child()).slideDown();
                     });

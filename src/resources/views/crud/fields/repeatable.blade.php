@@ -65,7 +65,7 @@ $field['min_rows'] =  $field['min_rows'] ?? 0;
 </div>
 
 
-<button type="button" class="btn btn-outline-primary btn-sm ml-1 add-repeatable-element-button">+ {{ $field['new_item_label'] ?? trans('backpack::crud.new_item') }}</button>
+<button type="button" class="btn btn-outline-primary btn-sm ml-1 add-repeatable-element-button">+ {{ $field['new_item_label'] ?? trans('tannhatcms::crud.new_item') }}</button>
 
 @include('crud::fields.inc.wrapper_end')
 

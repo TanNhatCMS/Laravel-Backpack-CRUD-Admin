@@ -14,7 +14,7 @@ $field['type'] = 'fetch';
 $field['multiple'] = $field['multiple'] ?? $crud->guessIfFieldHasMultipleFromRelationType($field['relation_type']);
 $field['data_source'] = $field['data_source'] ?? url($crud->route.'/fetch/'.$routeEntity);
 $field['attribute'] = $field['attribute'] ?? $connected_entity->identifiableAttribute();
-$field['placeholder'] = $field['placeholder'] ?? ($field['multiple'] ? trans('backpack::crud.select_entries') : trans('backpack::crud.select_entry'));
+$field['placeholder'] = $field['placeholder'] ?? ($field['multiple'] ? trans('tannhatcms::crud.select_entries') : trans('tannhatcms::crud.select_entry'));
 $field['include_all_form_fields'] = $field['include_all_form_fields'] ?? true;
 
 // Note: isColumnNullable returns true if column is nullable in database, also true if column does not exist.
@@ -126,7 +126,7 @@ $crud->markFieldTypeAsLoaded($field);
 @push('crud_fields_scripts')
 <script>
     // if nullable, make sure the Clear button uses the translated string
-    document.styleSheets[0].addRule('.select2-selection__clear::after','content:  "{{ trans('backpack::crud.clear') }}";');
+    document.styleSheets[0].addRule('.select2-selection__clear::after','content:  "{{ trans('tannhatcms::crud.clear') }}";');
 
     // if this function is not already on page, for example in fetch_create we add it.
     // this function is responsible for query the ajax endpoint and fetch a default entry

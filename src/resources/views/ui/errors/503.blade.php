@@ -6,9 +6,9 @@
 @endphp
 
 @section('title')
-  {{ trans('backpack::base.error_page.503') }}
+  {{ trans('tannhatcms::base.error_page.503') }}
 @endsection
 
 @section('description')
-  {!! $exception?->getMessage() && config('app.debug') ? ($shouldEscape ? e($exception->getMessage()) : $exception->getMessage()) : trans('backpack::base.error_page.message_503') !!}
+  {!! $exception?->getMessage() && config('app.debug') ? ($shouldEscape ? e($exception->getMessage()) : $exception->getMessage()) : trans('tannhatcms::base.error_page.message_503') !!}
 @endsection

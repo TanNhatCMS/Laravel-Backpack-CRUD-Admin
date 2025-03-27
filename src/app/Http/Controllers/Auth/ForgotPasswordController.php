@@ -32,7 +32,7 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
+        $this->data['title'] = trans('tannhatcms::base.reset_password'); // set the page title
 
         return view(backpack_view('auth.passwords.email'), $this->data);
     }

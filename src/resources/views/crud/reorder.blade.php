@@ -2,9 +2,9 @@
 
 @php
     $defaultBreadcrumbs = [
-      trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
+      trans('tannhatcms::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
       $crud->entity_name_plural => url($crud->route),
-      trans('backpack::crud.reorder') => false,
+      trans('tannhatcms::crud.reorder') => false,
     ];
 
     $columns = $crud->getOperationSetting('reorderColumnNames');
@@ -16,10 +16,10 @@
 @section('header')
     <section class="header-operation container-fluid animated fadeIn d-flex align-items-baseline d-print-none" bp-section="page-header">
         <h1 class="text-capitalize mb-0" bp-section="page-heading">{!! $crud->getHeading() ?? $crud->entity_name_plural !!}</h1>
-        <p class="ms-2 ml-2 mb-0" bp-section="page-subheading">{!! $crud->getSubheading() ?? trans('backpack::crud.reorder').' '.$crud->entity_name_plural !!}</p>
+        <p class="ms-2 ml-2 mb-0" bp-section="page-subheading">{!! $crud->getSubheading() ?? trans('tannhatcms::crud.reorder').' '.$crud->entity_name_plural !!}</p>
         @if ($crud->hasAccess('list'))
             <p class="ms-2 ml-2 mb-0" bp-section="page-subheading-back-button">
-                <small><a href="{{ url($crud->route) }}" class="d-print-none font-sm"><i class="la la-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
+                <small><a href="{{ url($crud->route) }}" class="d-print-none font-sm"><i class="la la-angle-double-left"></i> {{ trans('tannhatcms::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
             </p>
         @endif
     </section>
@@ -70,7 +70,7 @@ if(!function_exists('tree_element')) {
     <div class="row mt-4" bp-section="crud-operation-reorder">
         <div class="{{ $crud->getReorderContentClass() }}">
             <div class="card p-4">
-                <p>{{ trans('backpack::crud.reorder_text') }}</p>
+                <p>{{ trans('tannhatcms::crud.reorder_text') }}</p>
 
                 <ol class="sortable mt-0 mb-0">
                 <?php
@@ -87,8 +87,8 @@ if(!function_exists('tree_element')) {
             </div>{{-- /.card --}}
 
             <div class="mt-3">
-                <button id="toArray" class="btn btn-success text-light" data-style="zoom-in"><i class="la la-save"></i> {{ trans('backpack::crud.save') }}</button>
-                <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-secondary text-decoration-none"><span class="la la-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
+                <button id="toArray" class="btn btn-success text-light" data-style="zoom-in"><i class="la la-save"></i> {{ trans('tannhatcms::crud.save') }}</button>
+                <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-secondary text-decoration-none"><span class="la la-ban"></span> &nbsp;{{ trans('tannhatcms::crud.cancel') }}</a>
             </div>
 
         </div>
@@ -277,13 +277,13 @@ if(!function_exists('tree_element')) {
                     .done(function() {
                         new Noty({
                             type: "success",
-                            text: "<strong>{{ trans('backpack::crud.reorder_success_title') }}</strong><br>{{ trans('backpack::crud.reorder_success_message') }}"
+                            text: "<strong>{{ trans('tannhatcms::crud.reorder_success_title') }}</strong><br>{{ trans('tannhatcms::crud.reorder_success_message') }}"
                         }).show();
                     })
                     .fail(function() {
                         new Noty({
                             type: "error",
-                            text: "<strong>{{ trans('backpack::crud.reorder_error_title') }}</strong><br>{{ trans('backpack::crud.reorder_error_message') }}"
+                            text: "<strong>{{ trans('tannhatcms::crud.reorder_error_title') }}</strong><br>{{ trans('tannhatcms::crud.reorder_error_message') }}"
                         }).show();
                     })
                     .always(function() {

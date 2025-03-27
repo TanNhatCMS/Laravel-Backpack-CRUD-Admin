@@ -2,7 +2,7 @@
 
 @php
     $defaultBreadcrumbs = [
-        trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
+        trans('tannhatcms::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
         $crud->entity_name_plural => url($crud->route),
         Str::of($crud->getCurrentOperation())->headline()->toString() => false,
     ];
@@ -19,7 +19,7 @@
         <p class="mb-0 ms-2 ml-2" bp-section="page-subheading-back-button">
             <small><a href="{{ url($crud->route) }}" class="d-print-none font-sm"><i
                         class="la la-angle-double-{{ config('backpack.base.html_direction') == 'rtl' ? 'right' : 'left' }}"></i>
-                    {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
+                    {{ trans('tannhatcms::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
         </p>
     @endif
 </section>

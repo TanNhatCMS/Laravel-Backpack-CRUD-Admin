@@ -36,8 +36,8 @@
 
     @if($field['show_select_all'] ?? false)
     <span class="fs-6 small checklist-select-all-inputs">
-        <a href="javascript:void(0)" href="#" class="select-all-inputs">{{trans('backpack::crud.select_all')}}</a>
-        <a href="javascript:void(0)" href="#" class="unselect-all-inputs d-none">{{trans('backpack::crud.unselect_all')}}</a> 
+        <a href="javascript:void(0)" href="#" class="select-all-inputs">{{trans('tannhatcms::crud.select_all')}}</a>
+        <a href="javascript:void(0)" href="#" class="unselect-all-inputs d-none">{{trans('tannhatcms::crud.unselect_all')}}</a> 
     </span>
     @endif
     </label>

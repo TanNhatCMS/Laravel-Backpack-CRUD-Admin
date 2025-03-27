@@ -27,7 +27,7 @@
         @if($crud->buttons()->where('stack', 'line')->count() && ($displayActionsColumn ?? true))
             <tr>
                 <td>
-                    <strong>{{ trans('backpack::crud.actions') }}</strong>
+                    <strong>{{ trans('tannhatcms::crud.actions') }}</strong>
                 </td>
                 <td>
                     @include('crud::inc.button_stack', ['stack' => 'line'])

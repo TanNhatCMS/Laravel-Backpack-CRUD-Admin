@@ -9,8 +9,8 @@
             data-bs-target="#bp-filters-navbar"   {{-- for Bootstrap v5 --}}
             aria-controls="bp-filters-navbar"
             aria-expanded="false"
-            aria-label="{{ trans('backpack::crud.toggle_filters') }}">
-        <span class="la la-filter"></span> {{ trans('backpack::crud.filters') }}
+            aria-label="{{ trans('tannhatcms::crud.toggle_filters') }}">
+        <span class="la la-filter"></span> {{ trans('tannhatcms::crud.filters') }}
     </button>
 
     {{-- Collect the nav links, forms, and other content for toggling --}}
@@ -20,7 +20,7 @@
             @foreach ($crud->filters() as $filter)
             @includeFirst($filter->getNamespacedViewWithFallbacks())
             @endforeach
-            <li class="nav-item"><a href="#" id="remove_filters_button" class="nav-link {{ count(Request::input()) != 0 ? '' : 'invisible' }}"><i class="la la-eraser"></i> {{ trans('backpack::crud.remove_filters') }}</a></li>
+            <li class="nav-item"><a href="#" id="remove_filters_button" class="nav-link {{ count(Request::input()) != 0 ? '' : 'invisible' }}"><i class="la la-eraser"></i> {{ trans('tannhatcms::crud.remove_filters') }}</a></li>
         </ul>
     </div>{{-- /.navbar-collapse --}}
 </nav>
