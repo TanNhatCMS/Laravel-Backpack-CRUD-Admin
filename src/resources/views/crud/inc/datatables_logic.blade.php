@@ -262,7 +262,7 @@
               "thousands":      "{{ trans('tannhatcms::crud.thousands') }}",
               "lengthMenu":     "{{ trans('tannhatcms::crud.lengthMenu') }}",
               "loadingRecords": "{{ trans('tannhatcms::crud.loadingRecords') }}",
-              "processing":     "<img src='{{ Basset::getUrl('vendor/backpack/crud/src/resources/assets/img/spinner.svg') }}' alt='{{ trans('tannhatcms::crud.processing') }}'>",
+              "processing":     "<img src='{{ Basset::getUrl('vendor/tannhatcms/crud/src/resources/assets/img/spinner.svg') }}' alt='{{ trans('tannhatcms::crud.processing') }}'>",
               "search": "_INPUT_",
               "searchPlaceholder": "{{ trans('tannhatcms::crud.search') }}...",
               "zeroRecords":    "{{ trans('tannhatcms::crud.zeroRecords') }}",
