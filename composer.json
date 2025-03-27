@@ -36,7 +36,7 @@
     ],
     "require": {
         "laravel/framework": "^10.0|^11.0|^12",
-        "tannhatcms/basset": "^2",
+        "tannhatcms/basset": "^2.0.1",
         "creativeorange/gravatar": "^1.0",
         "prologue/alerts": "^1.0",
         "doctrine/dbal": "^3.0|^4.0",
@@ -85,8 +85,8 @@
     },
     "suggest": {
         "tannhatcms/generators": "Required on localhost to easily generate CRUDs, models, controllers etc.",
-        "backpack/filemanager": "Required to use the browse and browse_multiple fields.",
-        "backpack/revise-operation": "Optional operation to remember all entry changes, undo and redo them (aka audit trait)."
+        "tannhatcms/filemanager": "Required to use the browse and browse_multiple fields.",
+        "tannhatcms/revise-operation": "Optional operation to remember all entry changes, undo and redo them (aka audit trait)."
     },
     "repositories": [
         {
@@ -103,6 +103,11 @@
             "name": "tannhatcms/theme-tabler",
             "type": "vcs",
             "url": "https://github.com/TanNhatCMS/Laravel-Backpack-theme-tabler.git"
+        },
+        {
+            "name": "tannhatcms/filemanager",
+            "type": "git",
+            "url": "https://github.com/TanNhatCMS/Laravel-Backpack-FileManager.git"
         }
     ]
 }

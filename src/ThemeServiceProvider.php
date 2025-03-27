@@ -10,7 +10,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 class ThemeServiceProvider extends ServiceProvider
 {
     protected string $path; // the root directory of the theme
-    protected string $vendorName = 'backpack';
+    protected string $vendorName = 'tannhatcms';
     protected string $packageName = 'theme-name';
     protected array $commands = [];
     protected bool $theme = true;
