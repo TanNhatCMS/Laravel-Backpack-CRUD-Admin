@@ -155,17 +155,17 @@ $crud->markFieldTypeAsLoaded($field);
 @push('crud_fields_styles')
 
 <!-- include select2 css-->
-<link href="{{ asset('packages/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('packages/select2-bootstrap-theme/dist/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+@basset('https://unpkg.com/select2@4.0.13/dist/css/select2.min.css')
+@basset('https://unpkg.com/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css')
 @endpush
 
 {{-- FIELD JS - will be loaded in the after_scripts section --}}
 @push('crud_fields_scripts')
 
 <!-- include select2 js-->
-<script src="{{ asset('packages/select2/dist/js/select2.full.min.js') }}"></script>
+@basset('https://unpkg.com/select2@4.0.13/dist/js/select2.full.min.js')
 @if (app()->getLocale() !== 'en')
-<script src="{{ asset('packages/select2/dist/js/i18n/' . str_replace('_', '-', app()->getLocale()) . '.js') }}"></script>
+@basset('https://unpkg.com/select2@4.0.13/dist/js/i18n/' . str_replace('_', '-', app()->getLocale()) . '.js')
 @endif
 <script>
 
