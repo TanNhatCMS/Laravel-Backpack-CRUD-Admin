@@ -54,7 +54,7 @@ class BackpackServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'backpack');
+        $this->loadTranslationsFrom(realpath(__DIR__.'/resources/lang'), 'tannhatcms');
         $this->loadConfigs();
         $this->registerMiddlewareGroup($this->app->router);
         $this->setupRoutes($this->app->router);
@@ -141,7 +141,7 @@ class BackpackServiceProvider extends ServiceProvider
     public function publishFiles()
     {
         $backpack_views = [__DIR__.'/resources/views' => resource_path('views/vendor/backpack')];
-        $backpack_lang_files = [__DIR__.'/resources/lang' => app()->langPath().'/vendor/backpack'];
+        $backpack_lang_files = [__DIR__.'/resources/lang' => app()->langPath().'/vendor/tannhatcms'];
         $backpack_config_files = [__DIR__.'/config' => config_path()];
 
         // sidebar content views, which are the only views most people need to overwrite
